@@ -1,0 +1,1 @@
+# kesamaan_rasio
