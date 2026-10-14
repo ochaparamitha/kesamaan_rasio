@@ -1,0 +1,1108 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Petualangan Rasio - Matematika Kelas 6 SD</title>
+  
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Font Family - Fredoka & Nunito for friendly kid design -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brandBlue: '#00A8FF',
+            brandBlueDark: '#0088CC',
+            brandOrange: '#FF9F1C',
+            brandYellow: '#FFBF00',
+            brandGreen: '#2EC4B6',
+            brandPink: '#FF99C8',
+            brandPurple: '#A06CD5',
+            bgLight: '#F4F9FF'
+          },
+          fontFamily: {
+            fredoka: ['Fredoka', 'sans-serif'],
+            nunito: ['Nunito', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: 'Nunito', sans-serif;
+      background-color: #EBF4FC;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .heading-font {
+      font-family: 'Fredoka', sans-serif;
+    }
+    .card-shadow {
+      box-shadow: 0 10px 25px -5px rgba(0, 168, 255, 0.15), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+    }
+    .btn-bounce:active {
+      transform: scale(0.95);
+    }
+    .grid-box {
+      transition: all 0.3s ease;
+    }
+    /* Hide scrollbars for clean UI */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+<body class="text-slate-800 min-h-screen flex flex-col items-center justify-start pb-10">
+
+  <!-- Header / Top Bar -->
+  <header class="w-full max-w-md bg-gradient-to-r from-brandBlue via-sky-400 to-brandGreen text-white p-4 rounded-b-3xl shadow-lg sticky top-0 z-50">
+    <div class="flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <button id="btnHome" onclick="switchPortal('dashboard')" class="bg-white/20 hover:bg-white/30 text-white p-2.5 rounded-2xl transition btn-bounce hidden flex items-center justify-center">
+          <i class="fa-solid fa-house text-lg"></i>
+        </button>
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider bg-white/20 px-2 py-0.5 rounded-md text-amber-200">Matematika SD Kelas 6</span>
+          <h1 id="topBarTitle" class="heading-font text-xl font-bold leading-tight">Petualangan Rasio 🚀</h1>
+        </div>
+      </div>
+      <div class="bg-white/20 px-3 py-1.0 rounded-xl text-xs font-extrabold flex items-center gap-1.5 border border-white/30">
+        <i class="fa-regular fa-clock text-amber-300"></i>
+        <span>2x35 Mnt</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Container Utama Mobile Frame -->
+  <main class="w-full max-w-md px-4 pt-4 flex-1">
+
+    <!-- DASHBOARD / HOMEPAGE PORTAL SELECTION -->
+    <section id="portal-dashboard" class="space-y-4">
+      
+      <!-- Welcome Banner -->
+      <div class="bg-white p-5 rounded-3xl card-shadow border-2 border-sky-100 flex items-center gap-4 relative overflow-hidden">
+        <div class="z-10 flex-1">
+          <span class="bg-amber-100 text-amber-800 text-xs font-bold px-2.5 py-1 rounded-full uppercase tracking-wider">Bab 2: Rasio</span>
+          <h2 class="heading-font text-xl font-bold text-slate-800 mt-1">Bagian B: Konsep Kesamaan Rasio</h2>
+          <p class="text-xs text-slate-500 mt-1">Pilih salah satu Misi Pembelajaran di bawah untuk mulai berpetualang!</p>
+        </div>
+        <div class="w-20 h-20 bg-sky-100 rounded-2xl flex items-center justify-center text-4xl shrink-0 shadow-inner">
+          🧮
+        </div>
+      </div>
+
+      <!-- Portal Grid Menu -->
+      <div class="grid grid-cols-1 gap-3.5">
+
+        <!-- PORTAL 1 BUTTON -->
+        <button onclick="switchPortal('portal1')" class="bg-white p-4 rounded-2xl border-2 border-sky-200 hover:border-brandBlue text-left flex items-center justify-between card-shadow transition btn-bounce group">
+          <div class="flex items-center space-x-3.5">
+            <div class="w-12 h-12 rounded-xl bg-sky-100 text-brandBlue flex items-center justify-center text-2xl font-black group-hover:bg-brandBlue group-hover:text-white transition">
+              1
+            </div>
+            <div>
+              <h3 class="heading-font font-bold text-slate-800 text-base">Konsep Kesamaan Rasio</h3>
+              <p class="text-xs text-slate-500">Pengertian & visualisasi dasar rasio senilai</p>
+            </div>
+          </div>
+          <i class="fa-solid fa-chevron-right text-slate-300 group-hover:text-brandBlue transition"></i>
+        </button>
+
+        <!-- PORTAL 2 BUTTON -->
+        <button onclick="switchPortal('portal2')" class="bg-white p-4 rounded-2xl border-2 border-orange-200 hover:border-brandOrange text-left flex items-center justify-between card-shadow transition btn-bounce group">
+          <div class="flex items-center space-x-3.5">
+            <div class="w-12 h-12 rounded-xl bg-orange-100 text-brandOrange flex items-center justify-center text-2xl font-black group-hover:bg-brandOrange group-hover:text-white transition">
+              2
+            </div>
+            <div>
+              <h3 class="heading-font font-bold text-slate-800 text-base">Rasio Senilai (Perkalian)</h3>
+              <p class="text-xs text-slate-500">Memperbesar rasio dengan faktor perkalian</p>
+            </div>
+          </div>
+          <i class="fa-solid fa-chevron-right text-slate-300 group-hover:text-brandOrange transition"></i>
+        </button>
+
+        <!-- PORTAL 3 BUTTON -->
+        <button onclick="switchPortal('portal3')" class="bg-white p-4 rounded-2xl border-2 border-emerald-200 hover:border-brandGreen text-left flex items-center justify-between card-shadow transition btn-bounce group">
+          <div class="flex items-center space-x-3.5">
+            <div class="w-12 h-12 rounded-xl bg-emerald-100 text-brandGreen flex items-center justify-center text-2xl font-black group-hover:bg-brandGreen group-hover:text-white transition">
+              3
+            </div>
+            <div>
+              <h3 class="heading-font font-bold text-slate-800 text-base">Rasio Senilai (Pembagian)</h3>
+              <p class="text-xs text-slate-500">Menyederhanakan rasio dengan membagi</p>
+            </div>
+          </div>
+          <i class="fa-solid fa-chevron-right text-slate-300 group-hover:text-brandGreen transition"></i>
+        </button>
+
+        <!-- PORTAL 4 BUTTON -->
+        <button onclick="switchPortal('portal4')" class="bg-white p-4 rounded-2xl border-2 border-purple-200 hover:border-brandPurple text-left flex items-center justify-between card-shadow transition btn-bounce group">
+          <div class="flex items-center space-x-3.5">
+            <div class="w-12 h-12 rounded-xl bg-purple-100 text-brandPurple flex items-center justify-center text-2xl font-black group-hover:bg-brandPurple group-hover:text-white transition">
+              4
+            </div>
+            <div>
+              <h3 class="heading-font font-bold text-slate-800 text-base">Tabel Rasio & Angka Kosong</h3>
+              <p class="text-xs text-slate-500">Menggunakan tabel & mencari nilai hilang</p>
+            </div>
+          </div>
+          <i class="fa-solid fa-chevron-right text-slate-300 group-hover:text-brandPurple transition"></i>
+        </button>
+
+        <!-- PORTAL 5 BUTTON -->
+        <button onclick="switchPortal('portal5')" class="bg-white p-4 rounded-2xl border-2 border-pink-200 hover:border-brandPink text-left flex items-center justify-between card-shadow transition btn-bounce group">
+          <div class="flex items-center space-x-3.5">
+            <div class="w-12 h-12 rounded-xl bg-pink-100 text-pink-500 flex items-center justify-center text-2xl font-black group-hover:bg-pink-500 group-hover:text-white transition">
+              5
+            </div>
+            <div>
+              <h3 class="heading-font font-bold text-slate-800 text-base">Memeriksa Kesamaan Rasio</h3>
+              <p class="text-xs text-slate-500">Cara menguji dua rasio apakah senilai</p>
+            </div>
+          </div>
+          <i class="fa-solid fa-chevron-right text-slate-300 group-hover:text-pink-500 transition"></i>
+        </button>
+
+        <!-- PORTAL 6 BUTTON (Quiz) -->
+        <button onclick="switchPortal('portal6')" class="bg-gradient-to-r from-amber-400 to-brandOrange text-white p-4 rounded-2xl text-left flex items-center justify-between card-shadow transition btn-bounce group">
+          <div class="flex items-center space-x-3.5">
+            <div class="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center text-2xl font-black">
+              🏆
+            </div>
+            <div>
+              <h3 class="heading-font font-bold text-white text-base">Asesmen Formatif</h3>
+              <p class="text-xs text-amber-100">Uji kemampuanmu (10 Soal Interaktif)</p>
+            </div>
+          </div>
+          <div class="bg-white text-brandOrange px-3 py-1 rounded-full text-xs font-black uppercase shadow">
+            Mulai!
+          </div>
+        </button>
+
+      </div>
+    </section>
+
+    <!-- PORTAL 1: KONSEP & PENGERTIAN KESAMAAN RASIO -->
+    <section id="portal1" class="hidden space-y-4">
+      <div class="bg-sky-50 border-l-4 border-brandBlue p-3.5 rounded-r-xl">
+        <h2 class="heading-font font-bold text-brandBlue text-lg">PORTAL 1: Konsep & Kesamaan Rasio</h2>
+        <p class="text-xs text-slate-600">Mari pelajari arti dari rasio dan kapan dua rasio dikatakan senilai!</p>
+      </div>
+
+      <!-- Card 1: Mengingat Kembali -->
+      <div class="bg-white p-4 rounded-2xl card-shadow space-y-2 border border-slate-100">
+        <div class="flex items-center gap-2 text-brandBlue font-bold text-sm">
+          <i class="fa-solid fa-lightbulb"></i>
+          <span>Mengingat Kembali</span>
+        </div>
+        <p class="text-xs leading-relaxed text-slate-600">
+          <strong>Rasio</strong> adalah cara membandingkan dua besaran, biasa ditulis <span class="bg-sky-100 px-1.5 py-0.5 rounded font-bold text-brandBlue">A : B</span>.
+        </p>
+        <div class="bg-amber-50 p-2.5 rounded-xl border border-amber-200 text-xs text-amber-900 flex items-start gap-2">
+          <i class="fa-solid fa-triangle-exclamation text-amber-500 mt-0.5"></i>
+          <span><strong>PENTING:</strong> Urutan penulisan sangat penting! Rasio <strong>2 : 3</strong> berbeda artinya dengan <strong>3 : 2</strong>.</span>
+        </div>
+      </div>
+
+      <!-- Card 2: Pengertian Kesamaan Rasio -->
+      <div class="bg-white p-4 rounded-2xl card-shadow space-y-3 border border-slate-100">
+        <div class="flex items-center gap-2 text-brandGreen font-bold text-sm">
+          <i class="fa-solid fa-equals"></i>
+          <span>Apa itu Kesamaan Rasio?</span>
+        </div>
+        <p class="text-xs text-slate-600 leading-relaxed">
+          <strong>Kesamaan Rasio</strong> terjadi ketika dua rasio atau lebih menunjukkan nilai perbandingan yang <strong>SAMA BENTUK DASARNYA</strong>, meskipun angka-angkanya terlihat berbeda.
+        </p>
+
+        <!-- Visualisasi Kotak -->
+        <div class="bg-slate-50 p-3 rounded-xl space-y-3 border border-slate-200">
+          <p class="text-xs font-bold text-slate-700 text-center">Visualisasi Contoh 1:</p>
+          
+          <!-- Visual 2:3 -->
+          <div class="bg-white p-2.5 rounded-lg border border-slate-200">
+            <div class="flex justify-between items-center text-xs font-bold mb-1.5">
+              <span class="text-brandBlue">Rasio Pertama (2 : 3)</span>
+              <span class="text-slate-400">Kelompok 1</span>
+            </div>
+            <div class="flex items-center gap-1.5">
+              <div class="flex gap-1">
+                <div class="w-6 h-6 bg-brandBlue text-white text-xs font-bold rounded flex items-center justify-center">2</div>
+                <div class="w-6 h-6 bg-brandBlue text-white text-xs font-bold rounded flex items-center justify-center">2</div>
+              </div>
+              <span class="text-xs font-bold text-slate-400 mx-1">:</span>
+              <div class="flex gap-1">
+                <div class="w-6 h-6 bg-brandOrange text-white text-xs font-bold rounded flex items-center justify-center">3</div>
+                <div class="w-6 h-6 bg-brandOrange text-white text-xs font-bold rounded flex items-center justify-center">3</div>
+                <div class="w-6 h-6 bg-brandOrange text-white text-xs font-bold rounded flex items-center justify-center">3</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Visual 4:6 -->
+          <div class="bg-white p-2.5 rounded-lg border border-slate-200">
+            <div class="flex justify-between items-center text-xs font-bold mb-1.5">
+              <span class="text-brandBlue">Rasio Kedua (4 : 6)</span>
+              <span class="text-amber-500 font-extrabold">(Dikalikan 2)</span>
+            </div>
+            <div class="flex items-center gap-1.5">
+              <div class="grid grid-cols-2 gap-1">
+                <div class="w-5 h-5 bg-brandBlue text-white text-[10px] font-bold rounded flex items-center justify-center">4</div>
+                <div class="w-5 h-5 bg-brandBlue text-white text-[10px] font-bold rounded flex items-center justify-center">4</div>
+                <div class="w-5 h-5 bg-brandBlue text-white text-[10px] font-bold rounded flex items-center justify-center">4</div>
+                <div class="w-5 h-5 bg-brandBlue text-white text-[10px] font-bold rounded flex items-center justify-center">4</div>
+              </div>
+              <span class="text-xs font-bold text-slate-400 mx-1">:</span>
+              <div class="grid grid-cols-3 gap-1">
+                <div class="w-5 h-5 bg-brandOrange text-white text-[10px] font-bold rounded flex items-center justify-center">6</div>
+                <div class="w-5 h-5 bg-brandOrange text-white text-[10px] font-bold rounded flex items-center justify-center">6</div>
+                <div class="w-5 h-5 bg-brandOrange text-white text-[10px] font-bold rounded flex items-center justify-center">6</div>
+                <div class="w-5 h-5 bg-brandOrange text-white text-[10px] font-bold rounded flex items-center justify-center">6</div>
+                <div class="w-5 h-5 bg-brandOrange text-white text-[10px] font-bold rounded flex items-center justify-center">6</div>
+                <div class="w-5 h-5 bg-brandOrange text-white text-[10px] font-bold rounded flex items-center justify-center">6</div>
+              </div>
+            </div>
+          </div>
+
+          <p class="text-[11px] text-center text-slate-600 bg-sky-100 p-2 rounded-lg font-medium">
+            (2 × 2) : (3 × 2) = <strong>4 : 6</strong>. Karena perbandingannya sama, maka <strong>2 : 3 SENILAI dengan 4 : 6</strong>!
+          </p>
+        </div>
+      </div>
+
+      <!-- Card 3: Contoh Lain & Catatan -->
+      <div class="bg-white p-4 rounded-2xl card-shadow space-y-2 border border-slate-100">
+        <h3 class="font-bold text-xs text-slate-700">Contoh Rasio Senilai Lainnya:</h3>
+        <div class="grid grid-cols-3 gap-2 text-center text-xs font-bold">
+          <div class="p-2 bg-slate-100 rounded-xl text-slate-700">3 : 5 = 6 : 10</div>
+          <div class="p-2 bg-slate-100 rounded-xl text-slate-700">4 : 7 = 8 : 14</div>
+          <div class="p-2 bg-slate-100 rounded-xl text-slate-700">2 : 4 = 3 : 6</div>
+        </div>
+        <p class="text-[11px] text-slate-500 italic pt-1">
+          💡 <strong>Catatan Penting:</strong> Dua rasio tidak harus memiliki angka yang sama untuk menunjukkan perbandingan yang senilai!
+        </p>
+      </div>
+
+      <button onclick="switchPortal('portal2')" class="w-full bg-brandBlue text-white py-3 rounded-2xl font-bold heading-font card-shadow btn-bounce flex items-center justify-center gap-2">
+        <span>Lanjut ke Portal 2</span>
+        <i class="fa-solid fa-arrow-right"></i>
+      </button>
+    </section>
+
+    <!-- PORTAL 2: MENENTUKAN RASIO SENILAI (PERKALIAN) -->
+    <section id="portal2" class="hidden space-y-4">
+      <div class="bg-orange-50 border-l-4 border-brandOrange p-3.5 rounded-r-xl">
+        <h2 class="heading-font font-bold text-brandOrange text-lg">PORTAL 2: Rasio Senilai (Perkalian)</h2>
+        <p class="text-xs text-slate-600">Cara memperbesar rasio menggunakan perkalian faktor yang sama.</p>
+      </div>
+
+      <!-- Prinsip -->
+      <div class="bg-white p-4 rounded-2xl card-shadow space-y-2">
+        <div class="flex items-center gap-2 text-brandOrange font-bold text-sm">
+          <i class="fa-solid fa-calculator"></i>
+          <span>Prinsip Utama Perkalian</span>
+        </div>
+        <p class="text-xs text-slate-600 leading-relaxed">
+          Kita mendapatkan rasio yang senilai jika <strong>KEDUA BILANGAN</strong> dikalikan dengan <strong>ANGKA/FAKTOR YANG SAMA</strong>.
+        </p>
+        <div class="bg-orange-100/60 text-brandOrange font-bold p-3 rounded-xl text-center text-sm border border-orange-200">
+          ( A × n ) : ( B × n )
+        </div>
+      </div>
+
+      <!-- Contoh 2 & 3 -->
+      <div class="bg-white p-4 rounded-2xl card-shadow space-y-3">
+        <h3 class="font-bold text-xs text-slate-700 uppercase tracking-wider">Contoh Soal & Cara Kerja:</h3>
+        
+        <div class="p-3 bg-amber-50 rounded-xl space-y-1 border border-amber-200 text-xs">
+          <p class="font-bold text-amber-900">📌 Contoh 2:</p>
+          <p class="text-slate-700">Tentukan rasio senilai dari <strong>3 : 4</strong> jika dikalikan <strong>5</strong>!</p>
+          <p class="font-bold text-brandOrange mt-1">
+            👉 (3 × 5) : (4 × 5) = <span class="bg-brandOrange text-white px-2 py-0.5 rounded-md">15 : 20</span>
+          </p>
+        </div>
+
+        <div class="p-3 bg-sky-50 rounded-xl space-y-1 border border-sky-200 text-xs">
+          <p class="font-bold text-sky-900">📌 Contoh 3:</p>
+          <p class="text-slate-700">Cari dua rasio senilai dari <strong>2 : 5</strong>!</p>
+          <ul class="list-disc list-inside text-slate-700 space-y-1 mt-1">
+            <li>Dikalikan 2 ➔ (2×2) : (5×2) = <strong>4 : 10</strong></li>
+            <li>Dikalikan 3 ➔ (2×3) : (5×3) = <strong>6 : 15</strong></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Warning Box -->
+      <div class="bg-red-50 p-3.5 rounded-2xl border-2 border-red-200 space-y-1 text-xs">
+        <div class="flex items-center gap-2 text-red-600 font-bold text-sm">
+          <i class="fa-solid fa-triangle-exclamation"></i>
+          <span>Peringatan Penting!</span>
+        </div>
+        <p class="text-slate-600 leading-relaxed">
+          Mengapa kedua bilangan harus dikali dengan angka yang sama? Karena jika hanya satu bilangan yang dikalikan, perbandingannya akan rusak!
+        </p>
+        <p class="text-red-700 font-bold bg-white p-2 rounded-lg text-center mt-2 border border-red-100">
+          ❌ 2 : 3 TIDAK SAMA DENGAN 4 : 3 (Salah!)
+        </p>
+      </div>
+
+      <!-- Mini Interactive Widget -->
+      <div class="bg-white p-4 rounded-2xl card-shadow space-y-3 border-2 border-brandOrange">
+        <h3 class="font-bold text-xs text-brandOrange flex items-center gap-1.5">
+          <i class="fa-solid fa-wand-magic-sparkles"></i>
+          Coba Pengali Interaktif:
+        </h3>
+        <div class="flex items-center justify-around text-center">
+          <div class="bg-slate-100 p-2 rounded-xl">
+            <span class="text-[10px] text-slate-500 block">Rasio Awal</span>
+            <span class="font-black text-slate-800 text-base">3 : 4</span>
+          </div>
+          <div class="text-brandOrange font-black text-xl">×</div>
+          <div>
+            <span class="text-[10px] text-slate-500 block">Faktor</span>
+            <input id="p2Factor" type="number" min="1" max="10" value="4" onchange="calcP2()" oninput="calcP2()" class="w-14 text-center font-bold bg-orange-100 text-brandOrange rounded-xl p-1 border border-orange-300 focus:outline-none" />
+          </div>
+          <div class="text-brandOrange font-black text-xl">=</div>
+          <div class="bg-orange-500 text-white p-2 rounded-xl">
+            <span class="text-[10px] text-orange-100 block">Hasil</span>
+            <span id="p2Result" class="font-black text-base">12 : 16</span>
+          </div>
+        </div>
+      </div>
+
+      <button onclick="switchPortal('portal3')" class="w-full bg-brandOrange text-white py-3 rounded-2xl font-bold heading-font card-shadow btn-bounce flex items-center justify-center gap-2">
+        <span>Lanjut ke Portal 3</span>
+        <i class="fa-solid fa-arrow-right"></i>
+      </button>
+    </section>
+
+    <!-- PORTAL 3: MENENTUKAN RASIO SENILAI (PEMBAGIAN) -->
+    <section id="portal3" class="hidden space-y-4">
+      <div class="bg-emerald-50 border-l-4 border-brandGreen p-3.5 rounded-r-xl">
+        <h2 class="heading-font font-bold text-brandGreen text-lg">PORTAL 3: Rasio Senilai (Pembagian)</h2>
+        <p class="text-xs text-slate-600">Menyederhanakan rasio dengan membagi kedua bilangan.</p>
+      </div>
+
+      <!-- Prinsip -->
+      <div class="bg-white p-4 rounded-2xl card-shadow space-y-2">
+        <div class="flex items-center gap-2 text-brandGreen font-bold text-sm">
+          <i class="fa-solid fa-[#2EC4B6] fa-divide"></i>
+          <span>Prinsip Menyederhanakan Rasio</span>
+        </div>
+        <p class="text-xs text-slate-600 leading-relaxed">
+          Sama seperti perkalian, kita juga bisa mendapatkan rasio senilai dengan <strong>MEMBAGI KEDUA BILANGAN</strong> dengan angka pembagi yang sama.
+        </p>
+        <div class="bg-emerald-100/60 text-brandGreen font-bold p-3 rounded-xl text-center text-sm border border-emerald-200">
+          ( A ÷ n ) : ( B ÷ n )
+        </div>
+      </div>
+
+      <!-- Contoh 4 & 5 -->
+      <div class="bg-white p-4 rounded-2xl card-shadow space-y-3">
+        <h3 class="font-bold text-xs text-slate-700 uppercase tracking-wider">Contoh Soal Pembagian:</h3>
+        
+        <!-- Contoh 4 -->
+        <div class="p-3 bg-slate-50 rounded-xl space-y-2 border border-slate-200 text-xs">
+          <p class="font-bold text-slate-800">📌 Contoh 4: Sederhanakan rasio 12 : 18!</p>
+          
+          <div class="bg-white p-2 rounded-lg border border-slate-200 space-y-1">
+            <span class="font-bold text-brandGreen">Cara Bertahap:</span>
+            <p class="text-slate-600">1. Bagi 2 ➔ (12÷2) : (18÷2) = <strong>6 : 9</strong></p>
+            <p class="text-slate-600">2. Bagi 3 ➔ (6÷3) : (9÷3) = <strong class="text-brandGreen">2 : 3</strong></p>
+          </div>
+
+          <div class="bg-white p-2 rounded-lg border border-slate-200">
+            <span class="font-bold text-brandBlue">Cara Langsung (Bagi 6):</span>
+            <p class="text-slate-600">(12 ÷ 6) : (18 ÷ 6) = <strong class="text-brandBlue">2 : 3</strong></p>
+          </div>
+        </div>
+
+        <!-- Contoh 5 -->
+        <div class="p-3 bg-emerald-50 rounded-xl space-y-1 border border-emerald-200 text-xs">
+          <p class="font-bold text-emerald-900">📌 Contoh 5: Apakah 15 : 25 senilai dengan 3 : 5?</p>
+          <p class="text-slate-700">Kita bagi 15 : 25 dengan angka 5:</p>
+          <p class="text-slate-700">➔ (15 ÷ 5) : (25 ÷ 5) = <strong>3 : 5</strong></p>
+          <p class="font-bold text-brandGreen mt-1">Jawaban: YA, SENILAI! 🎉</p>
+        </div>
+      </div>
+
+      <button onclick="switchPortal('portal4')" class="w-full bg-brandGreen text-white py-3 rounded-2xl font-bold heading-font card-shadow btn-bounce flex items-center justify-center gap-2">
+        <span>Lanjut ke Portal 4</span>
+        <i class="fa-solid fa-arrow-right"></i>
+      </button>
+    </section>
+
+    <!-- PORTAL 4: TABEL RASIO & MENCARI ANGKA KOSONG -->
+    <section id="portal4" class="hidden space-y-4">
+      <div class="bg-purple-50 border-l-4 border-brandPurple p-3.5 rounded-r-xl">
+        <h2 class="heading-font font-bold text-brandPurple text-lg">PORTAL 4: Tabel Rasio & Angka Kosong</h2>
+        <p class="text-xs text-slate-600">Menggunakan tabel rasio visual dan mencari angka misterius!</p>
+      </div>
+
+      <!-- Contoh 6: Tabel Visual -->
+      <div class="bg-white p-4 rounded-2xl card-shadow space-y-3">
+        <div class="flex items-center gap-2 text-brandPurple font-bold text-sm">
+          <i class="fa-solid fa-table"></i>
+          <span>Contoh 6: Memahami Tabel Rasio</span>
+        </div>
+        <p class="text-xs text-slate-600">
+          Tabel rasio membantu kita melihat perubahan dua bilangan secara teratur dan konsisten.
+        </p>
+
+        <!-- Tabel HTML -->
+        <div class="overflow-x-auto">
+          <table class="w-full text-center border-collapse text-xs">
+            <thead>
+              <tr class="bg-purple-100 text-purple-900">
+                <th class="p-2 border border-purple-200 font-bold">Baris / Kolom</th>
+                <th class="p-2 border border-purple-200">Awal</th>
+                <th class="p-2 border border-purple-200">× 2</th>
+                <th class="p-2 border border-purple-200">× 3</th>
+                <th class="p-2 border border-purple-200">× 4</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="bg-white">
+                <td class="p-2 border border-slate-200 font-bold text-brandBlue">Bilangan 1</td>
+                <td class="p-2 border border-slate-200 font-bold">2</td>
+                <td class="p-2 border border-slate-200">4</td>
+                <td class="p-2 border border-slate-200">6</td>
+                <td class="p-2 border border-slate-200">8</td>
+              </tr>
+              <tr class="bg-slate-50">
+                <td class="p-2 border border-slate-200 font-bold text-brandOrange">Bilangan 2</td>
+                <td class="p-2 border border-slate-200 font-bold">3</td>
+                <td class="p-2 border border-slate-200">6</td>
+                <td class="p-2 border border-slate-200">9</td>
+                <td class="p-2 border border-slate-200">12</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="text-[11px] text-slate-500 text-center italic">
+          Setiap kolom di atas adalah pasangan rasio senilai (2:3 = 4:6 = 6:9 = 8:12).
+        </p>
+      </div>
+
+      <!-- Contoh 7: Mencari Angka Kosong -->
+      <div class="bg-white p-4 rounded-2xl card-shadow space-y-3">
+        <div class="flex items-center gap-2 text-amber-500 font-bold text-sm">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <span>Contoh 7: Mencari Angka Kosong</span>
+        </div>
+        <p class="text-xs text-slate-700 font-bold">
+          Soal: <span class="bg-amber-100 px-2 py-0.5 rounded text-amber-900">3 : 5 = 9 : [ ... ]</span>
+        </p>
+        
+        <div class="bg-amber-50 p-3 rounded-xl border border-amber-200 space-y-2 text-xs">
+          <p class="font-bold text-amber-900">Langkah Penyelesaian:</p>
+          <ol class="list-decimal list-inside space-y-1 text-slate-700">
+            <li>Bandingkan bilangan pertama: <span class="font-bold text-brandPurple">3 menjadi 9</span> (Dikalikan 3 ➔ 3 × 3 = 9).</li>
+            <li>Kalikan bilangan kedua dengan angka yang sama: <span class="font-bold text-brandPurple">5 × 3 = 15</span>.</li>
+          </ol>
+          <div class="bg-brandPurple text-white font-bold p-2 rounded-lg text-center mt-2">
+            Jadi, angka kosong adalah 15 (9 : 15).
+          </div>
+        </div>
+      </div>
+
+      <button onclick="switchPortal('portal5')" class="w-full bg-brandPurple text-white py-3 rounded-2xl font-bold heading-font card-shadow btn-bounce flex items-center justify-center gap-2">
+        <span>Lanjut ke Portal 5</span>
+        <i class="fa-solid fa-arrow-right"></i>
+      </button>
+    </section>
+
+    <!-- PORTAL 5: CARA MEMERIKSA DUA RASIO SENILAI -->
+    <section id="portal5" class="hidden space-y-4">
+      <div class="bg-pink-50 border-l-4 border-brandPink p-3.5 rounded-r-xl">
+        <h2 class="heading-font font-bold text-pink-600 text-lg">PORTAL 5: Memeriksa Kesamaan Rasio</h2>
+        <p class="text-xs text-slate-600">Metode cepat untuk menguji apakah dua rasio senilai atau tidak.</p>
+      </div>
+
+      <!-- Metode -->
+      <div class="bg-white p-4 rounded-2xl card-shadow space-y-2">
+        <h3 class="font-bold text-xs text-slate-800">Bagaimana Cara Memeriksanya?</h3>
+        <p class="text-xs text-slate-600 leading-relaxed">
+          Sederhanakan kedua rasio ke bentuk paling kecil, atau periksa apakah ada faktor perkalian/pembagian yang konsisten di kedua posisinya.
+        </p>
+      </div>
+
+      <!-- Contoh 8: Senilai -->
+      <div class="bg-white p-4 rounded-2xl card-shadow space-y-2 border-l-4 border-emerald-500">
+        <div class="flex items-center justify-between">
+          <span class="font-bold text-xs text-slate-800">📌 Contoh 8 (Kasus Senilai)</span>
+          <span class="bg-emerald-100 text-emerald-700 text-[10px] font-extrabold px-2 py-0.5 rounded-full">SENILAI</span>
+        </div>
+        <p class="text-xs text-slate-700">Apakah <strong>6 : 8</strong> senilai dengan <strong>3 : 4</strong>?</p>
+        <div class="bg-emerald-50 p-2.5 rounded-xl text-xs text-emerald-900 border border-emerald-200">
+          Uji: Bagi rasio 6 : 8 dengan angka 2 ➔ (6÷2) : (8÷2) = <strong>3 : 4</strong>.<br/>
+          <strong class="text-emerald-700">Hasilnya sama persis! Maka keduanya SENILAI.</strong>
+        </div>
+      </div>
+
+      <!-- Contoh 9: Tidak Senilai -->
+      <div class="bg-white p-4 rounded-2xl card-shadow space-y-2 border-l-4 border-rose-500">
+        <div class="flex items-center justify-between">
+          <span class="font-bold text-xs text-slate-800">📌 Contoh 9 (Kasus Tidak Senilai)</span>
+          <span class="bg-rose-100 text-rose-700 text-[10px] font-extrabold px-2 py-0.5 rounded-full">TIDAK SENILAI</span>
+        </div>
+        <p class="text-xs text-slate-700">Apakah <strong>4 : 7</strong> senilai dengan <strong>8 : 21</strong>?</p>
+        <div class="bg-rose-50 p-2.5 rounded-xl text-xs text-rose-900 border border-rose-200 space-y-1">
+          <p>Uji pengali:</p>
+          <p>• Bilangan Pertama: 4 × 2 = 8 (Pengali = 2)</p>
+          <p>• Bilangan Kedua: 7 × 3 = 21 (Pengali = 3)</p>
+          <p class="font-bold text-rose-700 pt-1">Karena faktor pengalinya berbeda (2 dan 3), maka kedua rasio ini TIDAK SENILAI!</p>
+        </div>
+      </div>
+
+      <!-- Call to Action Portal 6 -->
+      <div class="bg-gradient-to-r from-amber-400 to-brandOrange text-white p-5 rounded-3xl text-center space-y-2 card-shadow">
+        <div class="text-3xl">🎉</div>
+        <h3 class="heading-font text-lg font-bold">Kamu Sudah Siap!</h3>
+        <p class="text-xs text-amber-100">Kamu telah mempelajari seluruh materi dari Portal 1 sampai Portal 5.</p>
+        <button onclick="switchPortal('portal6')" class="mt-2 bg-white text-brandOrange px-6 py-2.5 rounded-2xl font-black heading-font card-shadow btn-bounce w-full shadow-lg">
+          Mulai Asesmen Formatif 🚀
+        </button>
+      </div>
+    </section>
+
+    <!-- PORTAL 6: ASESMEN FORMATIF -->
+    <section id="portal6" class="hidden space-y-4">
+      
+      <!-- STEP 1: FORM IDENTITAS -->
+      <div id="quizIdentityStep" class="bg-white p-5 rounded-3xl card-shadow border-2 border-amber-300 space-y-4">
+        <div class="text-center space-y-1">
+          <div class="w-16 h-16 bg-amber-100 text-brandOrange rounded-full flex items-center justify-center text-3xl mx-auto mb-2">
+            📝
+          </div>
+          <h2 class="heading-font text-xl font-bold text-slate-800">Asesmen Formatif Rasio</h2>
+          <p class="text-xs text-slate-500">Materi Kesamaan Rasio - Matematika Kelas 6 SD</p>
+        </div>
+
+        <div class="bg-amber-50 p-3 rounded-2xl border border-amber-200 text-xs text-amber-900 space-y-1">
+          <p class="font-bold flex items-center gap-1.5">
+            <i class="fa-solid fa-circle-info text-amber-600"></i>
+            Petunjuk Mengerjakan:
+          </p>
+          <ul class="list-disc list-inside space-y-0.5 text-slate-700">
+            <li>Terdiri dari <strong>10 soal interaktif</strong>.</li>
+            <li>Soal 1 - 5: Pilihan Ganda (10 Poin/soal).</li>
+            <li>Soal 6 - 10: Isian Singkat (10 Poin/soal).</li>
+            <li>Nilai maksimal adalah <strong>100 Poin</strong>.</li>
+          </ul>
+        </div>
+
+        <div class="space-y-1.5">
+          <label for="studentName" class="block text-xs font-bold text-slate-700">Nama Lengkap Siswa <span class="text-rose-500">*</span></label>
+          <input type="text" id="studentName" placeholder="Ketik nama lengkapmu di sini..." class="w-full px-4 py-3 rounded-2xl bg-slate-50 border-2 border-slate-200 text-sm font-bold text-slate-800 focus:outline-none focus:border-brandOrange transition" />
+        </div>
+
+        <button onclick="startQuiz()" class="w-full bg-gradient-to-r from-amber-400 to-brandOrange text-white py-3.5 rounded-2xl font-black heading-font text-base card-shadow btn-bounce">
+          Mulai Ujian Sekarang 🚀
+        </button>
+      </div>
+
+      <!-- STEP 2: SOAL QUIZ -->
+      <div id="quizQuestionsStep" class="hidden space-y-4">
+        
+        <!-- Header Info Quiz -->
+        <div class="bg-white p-3.5 rounded-2xl card-shadow flex items-center justify-between border border-amber-200">
+          <div>
+            <span id="quizStudentDisplay" class="font-bold text-xs text-brandOrange block">Siswa: -</span>
+            <span class="text-[10px] text-slate-400">Kerjakan dengan teliti ya!</span>
+          </div>
+          <div class="bg-amber-100 text-amber-800 px-3 py-1 rounded-xl font-bold text-xs">
+            10 Soal Total
+          </div>
+        </div>
+
+        <!-- QUESTIONS LIST -->
+        <form id="quizForm" class="space-y-4">
+
+          <!-- SOAL 1 -->
+          <div class="bg-white p-4 rounded-2xl card-shadow space-y-3 border border-slate-100">
+            <div class="flex items-center justify-between">
+              <span class="bg-sky-100 text-brandBlue text-xs font-black px-2.5 py-0.5 rounded-full">Soal 1 (Pilihan Ganda)</span>
+              <span class="text-xs text-slate-400 font-bold">10 Poin</span>
+            </div>
+            <p class="text-xs font-bold text-slate-800 leading-relaxed">
+              1. Rasio yang senilai dengan <strong>2 : 5</strong> adalah ....
+            </p>
+            <div class="grid grid-cols-2 gap-2 text-xs">
+              <label class="flex items-center gap-2 p-2.5 rounded-xl border border-slate-200 hover:bg-sky-50 cursor-pointer transition">
+                <input type="radio" name="q1" value="A" class="accent-brandBlue" />
+                <span>A. 4 : 8</span>
+              </label>
+              <label class="flex items-center gap-2 p-2.5 rounded-xl border border-slate-200 hover:bg-sky-50 cursor-pointer transition">
+                <input type="radio" name="q1" value="B" class="accent-brandBlue" />
+                <span>B. 4 : 10</span>
+              </label>
+              <label class="flex items-center gap-2 p-2.5 rounded-xl border border-slate-200 hover:bg-sky-50 cursor-pointer transition">
+                <input type="radio" name="q1" value="C" class="accent-brandBlue" />
+                <span>C. 6 : 10</span>
+              </label>
+              <label class="flex items-center gap-2 p-2.5 rounded-xl border border-slate-200 hover:bg-sky-50 cursor-pointer transition">
+                <input type="radio" name="q1" value="D" class="accent-brandBlue" />
+                <span>D. 5 : 2</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- SOAL 2 -->
+          <div class="bg-white p-4 rounded-2xl card-shadow space-y-3 border border-slate-100">
+            <div class="flex items-center justify-between">
+              <span class="bg-sky-100 text-brandBlue text-xs font-black px-2.5 py-0.5 rounded-full">Soal 2 (Pilihan Ganda)</span>
+              <span class="text-xs text-slate-400 font-bold">10 Poin</span>
+            </div>
+            <p class="text-xs font-bold text-slate-800 leading-relaxed">
+              2. Rasio <strong>12 : 20</strong> jika disederhanakan menjadi ....
+            </p>
+            <div class="grid grid-cols-2 gap-2 text-xs">
+              <label class="flex items-center gap-2 p-2.5 rounded-xl border border-slate-200 hover:bg-sky-50 cursor-pointer transition">
+                <input type="radio" name="q2" value="A" class="accent-brandBlue" />
+                <span>A. 2 : 5</span>
+              </label>
+              <label class="flex items-center gap-2 p-2.5 rounded-xl border border-slate-200 hover:bg-sky-50 cursor-pointer transition">
+                <input type="radio" name="q2" value="B" class="accent-brandBlue" />
+                <span>B. 3 : 4</span>
+              </label>
+              <label class="flex items-center gap-2 p-2.5 rounded-xl border border-slate-200 hover:bg-sky-50 cursor-pointer transition">
+                <input type="radio" name="q2" value="C" class="accent-brandBlue" />
+                <span>C. 3 : 5</span>
+              </label>
+              <label class="flex items-center gap-2 p-2.5 rounded-xl border border-slate-200 hover:bg-sky-50 cursor-pointer transition">
+                <input type="radio" name="q2" value="D" class="accent-brandBlue" />
+                <span>D. 4 : 5</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- SOAL 3 -->
+          <div class="bg-white p-4 rounded-2xl card-shadow space-y-3 border border-slate-100">
+            <div class="flex items-center justify-between">
+              <span class="bg-sky-100 text-brandBlue text-xs font-black px-2.5 py-0.5 rounded-full">Soal 3 (Pilihan Ganda)</span>
+              <span class="text-xs text-slate-400 font-bold">10 Poin</span>
+            </div>
+            <p class="text-xs font-bold text-slate-800 leading-relaxed">
+              3. Rasio <strong>3 : 4</strong> dikalikan dengan <strong>3</strong> pada kedua bilangannya. Hasilnya adalah ....
+            </p>
+            <div class="grid grid-cols-2 gap-2 text-xs">
+              <label class="flex items-center gap-2 p-2.5 rounded-xl border border-slate-200 hover:bg-sky-50 cursor-pointer transition">
+                <input type="radio" name="q3" value="A" class="accent-brandBlue" />
+                <span>A. 6 : 7</span>
+              </label>
+              <label class="flex items-center gap-2 p-2.5 rounded-xl border border-slate-200 hover:bg-sky-50 cursor-pointer transition">
+                <input type="radio" name="q3" value="B" class="accent-brandBlue" />
+                <span>B. 9 : 12</span>
+              </label>
+              <label class="flex items-center gap-2 p-2.5 rounded-xl border border-slate-200 hover:bg-sky-50 cursor-pointer transition">
+                <input type="radio" name="q3" value="C" class="accent-brandBlue" />
+                <span>C. 3 : 12</span>
+              </label>
+              <label class="flex items-center gap-2 p-2.5 rounded-xl border border-slate-200 hover:bg-sky-50 cursor-pointer transition">
+                <input type="radio" name="q3" value="D" class="accent-brandBlue" />
+                <span>D. 12 : 9</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- SOAL 4 -->
+          <div class="bg-white p-4 rounded-2xl card-shadow space-y-3 border border-slate-100">
+            <div class="flex items-center justify-between">
+              <span class="bg-sky-100 text-brandBlue text-xs font-black px-2.5 py-0.5 rounded-full">Soal 4 (Pilihan Ganda)</span>
+              <span class="text-xs text-slate-400 font-bold">10 Poin</span>
+            </div>
+            <p class="text-xs font-bold text-slate-800 leading-relaxed">
+              4. Pasangan rasio berikut yang <strong>TIDAK SENILAI</strong> adalah ....
+            </p>
+            <div class="grid grid-cols-1 gap-2 text-xs">
+              <label class="flex items-center gap-2 p-2.5 rounded-xl border border-slate-200 hover:bg-sky-50 cursor-pointer transition">
+                <input type="radio" name="q4" value="A" class="accent-brandBlue" />
+                <span>A. 2 : 3 dan 4 : 6</span>
+              </label>
+              <label class="flex items-center gap-2 p-2.5 rounded-xl border border-slate-200 hover:bg-sky-50 cursor-pointer transition">
+                <input type="radio" name="q4" value="B" class="accent-brandBlue" />
+                <span>B. 3 : 5 dan 6 : 10</span>
+              </label>
+              <label class="flex items-center gap-2 p-2.5 rounded-xl border border-slate-200 hover:bg-sky-50 cursor-pointer transition">
+                <input type="radio" name="q4" value="C" class="accent-brandBlue" />
+                <span>C. 4 : 7 dan 8 : 14</span>
+              </label>
+              <label class="flex items-center gap-2 p-2.5 rounded-xl border border-slate-200 hover:bg-sky-50 cursor-pointer transition">
+                <input type="radio" name="q4" value="D" class="accent-brandBlue" />
+                <span>D. 2 : 5 dan 6 : 10</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- SOAL 5 -->
+          <div class="bg-white p-4 rounded-2xl card-shadow space-y-3 border border-slate-100">
+            <div class="flex items-center justify-between">
+              <span class="bg-sky-100 text-brandBlue text-xs font-black px-2.5 py-0.5 rounded-full">Soal 5 (Pilihan Ganda)</span>
+              <span class="text-xs text-slate-400 font-bold">10 Poin</span>
+            </div>
+            <p class="text-xs font-bold text-slate-800 leading-relaxed">
+              5. Diketahui <strong>4 : 7 = 12 : [ ... ]</strong>. Bilangan yang tepat untuk mengisi kotak adalah ....
+            </p>
+            <div class="grid grid-cols-2 gap-2 text-xs">
+              <label class="flex items-center gap-2 p-2.5 rounded-xl border border-slate-200 hover:bg-sky-50 cursor-pointer transition">
+                <input type="radio" name="q5" value="A" class="accent-brandBlue" />
+                <span>A. 14</span>
+              </label>
+              <label class="flex items-center gap-2 p-2.5 rounded-xl border border-slate-200 hover:bg-sky-50 cursor-pointer transition">
+                <input type="radio" name="q5" value="B" class="accent-brandBlue" />
+                <span>B. 18</span>
+              </label>
+              <label class="flex items-center gap-2 p-2.5 rounded-xl border border-slate-200 hover:bg-sky-50 cursor-pointer transition">
+                <input type="radio" name="q5" value="C" class="accent-brandBlue" />
+                <span>C. 21</span>
+              </label>
+              <label class="flex items-center gap-2 p-2.5 rounded-xl border border-slate-200 hover:bg-sky-50 cursor-pointer transition">
+                <input type="radio" name="q5" value="D" class="accent-brandBlue" />
+                <span>D. 28</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- ISIAN SINGKAT BANNER -->
+          <div class="bg-emerald-100 text-emerald-800 p-2.5 rounded-xl text-xs font-bold text-center">
+            ✍️ Bagian 2: Isian Singkat (Soal 6 - 10)
+          </div>
+
+          <!-- SOAL 6 -->
+          <div class="bg-white p-4 rounded-2xl card-shadow space-y-2 border border-slate-100">
+            <div class="flex items-center justify-between">
+              <span class="bg-emerald-100 text-brandGreen text-xs font-black px-2.5 py-0.5 rounded-full">Soal 6 (Isian)</span>
+              <span class="text-xs text-slate-400 font-bold">10 Poin</span>
+            </div>
+            <p class="text-xs font-bold text-slate-800 leading-relaxed">
+              6. Rasio <strong>15 : 25</strong> disederhanakan dengan membagi kedua bilangan dengan <strong>5</strong>. Hasilnya adalah ....
+            </p>
+            <input type="text" id="q6" placeholder="Contoh: 3:5" class="w-full p-2.5 rounded-xl bg-slate-50 border border-slate-300 text-xs font-bold text-slate-800 focus:outline-none focus:border-brandGreen" />
+          </div>
+
+          <!-- SOAL 7 -->
+          <div class="bg-white p-4 rounded-2xl card-shadow space-y-2 border border-slate-100">
+            <div class="flex items-center justify-between">
+              <span class="bg-emerald-100 text-brandGreen text-xs font-black px-2.5 py-0.5 rounded-full">Soal 7 (Isian)</span>
+              <span class="text-xs text-slate-400 font-bold">10 Poin</span>
+            </div>
+            <p class="text-xs font-bold text-slate-800 leading-relaxed">
+              7. Lengkapilah kesamaan rasio berikut: <strong>2 : 3 = 10 : [ ... ]</strong>.
+            </p>
+            <input type="text" id="q7" placeholder="Ketik angka hasil..." class="w-full p-2.5 rounded-xl bg-slate-50 border border-slate-300 text-xs font-bold text-slate-800 focus:outline-none focus:border-brandGreen" />
+          </div>
+
+          <!-- SOAL 8 -->
+          <div class="bg-white p-4 rounded-2xl card-shadow space-y-2 border border-slate-100">
+            <div class="flex items-center justify-between">
+              <span class="bg-emerald-100 text-brandGreen text-xs font-black px-2.5 py-0.5 rounded-full">Soal 8 (Isian)</span>
+              <span class="text-xs text-slate-400 font-bold">10 Poin</span>
+            </div>
+            <p class="text-xs font-bold text-slate-800 leading-relaxed">
+              8. Tentukan rasio senilai dengan <strong>5 : 8</strong> jika kedua bilangan dikalikan <strong>4</strong>!
+            </p>
+            <input type="text" id="q8" placeholder="Contoh: 20:32" class="w-full p-2.5 rounded-xl bg-slate-50 border border-slate-300 text-xs font-bold text-slate-800 focus:outline-none focus:border-brandGreen" />
+          </div>
+
+          <!-- SOAL 9 -->
+          <div class="bg-white p-4 rounded-2xl card-shadow space-y-2 border border-slate-100">
+            <div class="flex items-center justify-between">
+              <span class="bg-emerald-100 text-brandGreen text-xs font-black px-2.5 py-0.5 rounded-full">Soal 9 (Isian)</span>
+              <span class="text-xs text-slate-400 font-bold">10 Poin</span>
+            </div>
+            <p class="text-xs font-bold text-slate-800 leading-relaxed">
+              9. Apakah rasio <strong>9 : 12</strong> senilai dengan <strong>3 : 4</strong>? Tuliskan jawabanmu (Ya / Tidak).
+            </p>
+            <input type="text" id="q9" placeholder="Ketik Ya atau Tidak" class="w-full p-2.5 rounded-xl bg-slate-50 border border-slate-300 text-xs font-bold text-slate-800 focus:outline-none focus:border-brandGreen" />
+          </div>
+
+          <!-- SOAL 10 -->
+          <div class="bg-white p-4 rounded-2xl card-shadow space-y-2 border border-slate-100">
+            <div class="flex items-center justify-between">
+              <span class="bg-emerald-100 text-brandGreen text-xs font-black px-2.5 py-0.5 rounded-full">Soal 10 (Isian)</span>
+              <span class="text-xs text-slate-400 font-bold">10 Poin</span>
+            </div>
+            <p class="text-xs font-bold text-slate-800 leading-relaxed">
+              10. Perhatikan tabel berikut:<br/>
+              - Bilangan 1: &nbsp;3 | 6 | 9 &nbsp;| 12<br/>
+              - Bilangan 2: &nbsp;4 | 8 | <strong>[ ... ]</strong> | 16<br/>
+              Bilangan yang tepat untuk melengkapi tabel tersebut adalah ....
+            </p>
+            <input type="text" id="q10" placeholder="Ketik angka yang hilang..." class="w-full p-2.5 rounded-xl bg-slate-50 border border-slate-300 text-xs font-bold text-slate-800 focus:outline-none focus:border-brandGreen" />
+          </div>
+
+          <button type="button" onclick="submitQuiz()" class="w-full bg-emerald-500 hover:bg-emerald-600 text-white py-3.5 rounded-2xl font-black heading-font text-base card-shadow btn-bounce shadow-lg mt-4">
+            Selesai & Lihat Hasil 🎯
+          </button>
+        </form>
+      </div>
+
+      <!-- STEP 3: HASIL & EVALUASI -->
+      <div id="quizResultStep" class="hidden space-y-4">
+        
+        <!-- Score Card -->
+        <div class="bg-white p-5 rounded-3xl card-shadow border-2 border-brandBlue text-center space-y-3">
+          <span class="text-xs font-extrabold text-slate-400 uppercase tracking-widest">Laporan Hasil Asesmen</span>
+          <h2 id="resStudentName" class="heading-font text-xl font-bold text-slate-800">Nama Siswa</h2>
+          
+          <div class="w-28 h-28 rounded-full bg-gradient-to-tr from-brandBlue to-sky-300 text-white flex flex-col items-center justify-center mx-auto shadow-inner border-4 border-white">
+            <span id="resScore" class="heading-font text-3xl font-black">100</span>
+            <span class="text-[10px] font-bold text-sky-100 uppercase">Nilai Akhir</span>
+          </div>
+
+          <div id="resSummary" class="text-xs font-bold text-slate-600 bg-slate-100 p-2.5 rounded-xl">
+            Jawaban Benar: 10 dari 10 Soal
+          </div>
+        </div>
+
+        <!-- WHATSAPP SCREENSHOT ALERT BANNER (MENCOLOK) -->
+        <div class="bg-gradient-to-r from-emerald-500 to-teal-600 text-white p-4 rounded-2xl card-shadow border-2 border-emerald-300 space-y-2 animate-pulse">
+          <div class="flex items-center gap-2">
+            <span class="text-2xl">📸</span>
+            <h3 class="heading-font font-black text-sm uppercase tracking-wider">PERHATIAN WAJIB SISWA!</h3>
+          </div>
+          <p class="text-xs font-bold leading-relaxed text-emerald-50">
+            Silakan <strong class="underline">SCREENSHOT / TANGKAP LAYAR</strong> halaman hasil ini sekarang, lalu kirimkan gambarnya ke <span class="bg-white text-emerald-800 px-1.5 py-0.5 rounded font-black">WhatsApp Pribadi Guru</span> untuk dicatat nilaimu!
+          </p>
+        </div>
+
+        <!-- TOMBOL TOGGLE PEMBAHASAN KONSEP -->
+        <button onclick="toggleEvaluation()" class="w-full bg-white text-brandPurple border-2 border-brandPurple py-3 rounded-2xl font-bold heading-font text-xs card-shadow btn-bounce flex items-center justify-center gap-2">
+          <i class="fa-solid fa-book-open"></i>
+          <span id="evalToggleText">Lihat Panduan Evaluasi / Pembahasan</span>
+        </button>
+
+        <!-- PANDUAN EVALUASI KONSEPTUAL (TANPA KUNCI EXPLICIT) -->
+        <div id="evaluationContent" class="hidden bg-white p-4 rounded-2xl card-shadow space-y-3 border border-purple-200">
+          <div class="bg-purple-50 p-2.5 rounded-xl border border-purple-200 text-xs text-purple-900 font-bold flex items-center gap-2">
+            <i class="fa-solid fa-lightbulb text-purple-600"></i>
+            <span>Panduan Cara Pengerjaan Umumi:</span>
+          </div>
+
+          <div class="space-y-2.5 text-xs text-slate-700">
+            <!-- PANDUAN 1 -->
+            <div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200">
+              <span class="font-bold text-brandBlue block mb-0.5">1. Menyelidiki Rasio Senilai:</span>
+              <p>Kalikan atau bagikan kedua bilangan pada rasio awal dengan faktor yang sama. Jika kedua bilangan dikalikan/dibagi angka yang sama, maka rasio tersebut pasti senilai.</p>
+            </div>
+
+            <!-- PANDUAN 2 -->
+            <div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200">
+              <span class="font-bold text-brandOrange block mb-0.5">2. Menyederhanakan Rasio:</span>
+              <p>Bagilah kedua bilangan rasio dengan faktor pembagi yang sama (seperti FPB) bertahap atau langsung sampai mendapatkan bentuk perbandingan terkecil.</p>
+            </div>
+
+            <!-- PANDUAN 3 -->
+            <div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200">
+              <span class="font-bold text-brandPurple block mb-0.5">3. Mengisi Angka Kosong / Tabel Rasio:</span>
+              <p>Cari tahu berapa faktor pengali pada bilangan pertama yang diketahui (misal 3 menjadi 9 ➔ dikali 3). Lalu gunakan faktor pengali yang sama untuk menghitung bilangan pasangannya.</p>
+            </div>
+
+            <!-- PANDUAN 4 -->
+            <div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200">
+              <span class="font-bold text-brandGreen block mb-0.5">4. Memeriksa Pasangan Tidak Senilai:</span>
+              <p>Periksa faktor pengali bilangan pertama dan kedua. Jika faktor pengali bilangan pertama berbeda dengan bilangan kedua, maka pasangan tersebut TIDAK senilai.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tombol Kembali Dashboard / Ulangi -->
+        <div class="grid grid-cols-2 gap-2">
+          <button onclick="resetQuiz()" class="bg-slate-200 text-slate-700 py-3 rounded-2xl font-bold text-xs btn-bounce">
+            Ulangi Ujian 🔄
+          </button>
+          <button onclick="switchPortal('dashboard')" class="bg-brandBlue text-white py-3 rounded-2xl font-bold text-xs btn-bounce">
+            Ke Dashboard 🏠
+          </button>
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <script>
+    // Global Navigation Function
+    function switchPortal(portalId) {
+      // Hide all portals
+      const portals = ['dashboard', 'portal1', 'portal2', 'portal3', 'portal4', 'portal5', 'portal6'];
+      portals.forEach(id => {
+        const el = document.getElementById(id === 'dashboard' ? 'portal-dashboard' : id);
+        if (el) el.classList.add('hidden');
+      });
+
+      // Show selected portal
+      const target = document.getElementById(portalId === 'dashboard' ? 'portal-dashboard' : portalId);
+      if (target) target.classList.remove('hidden');
+
+      // Toggle Home Button
+      const btnHome = document.getElementById('btnHome');
+      if (portalId === 'dashboard') {
+        btnHome.classList.add('hidden');
+        document.getElementById('topBarTitle').innerText = 'Petualangan Rasio 🚀';
+      } else {
+        btnHome.classList.remove('hidden');
+        document.getElementById('topBarTitle').innerText = getPortalTitle(portalId);
+      }
+
+      // Scroll to top
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function getPortalTitle(id) {
+      switch(id) {
+        case 'portal1': return 'Portal 1: Konsep Rasio';
+        case 'portal2': return 'Portal 2: Perkalian';
+        case 'portal3': return 'Portal 3: Pembagian';
+        case 'portal4': return 'Portal 4: Tabel Rasio';
+        case 'portal5': return 'Portal 5: Cek Senilai';
+        case 'portal6': return 'Portal 6: Asesmen';
+        default: return 'Petualangan Rasio 🚀';
+      }
+    }
+
+    // Interactive Widget Portal 2
+    function calcP2() {
+      const factorInput = document.getElementById('p2Factor');
+      let factor = parseInt(factorInput.value) || 1;
+      if (factor < 1) factor = 1;
+      const resA = 3 * factor;
+      const resB = 4 * factor;
+      document.getElementById('p2Result').innerText = `${resA} : ${resB}`;
+    }
+
+    // Quiz State Variables
+    let currentStudent = '';
+
+    function startQuiz() {
+      const nameInput = document.getElementById('studentName');
+      const name = nameInput.value.trim();
+      
+      if (!name) {
+        alert('Mohon isi Nama Lengkapmu terlebih dahulu ya! 😊');
+        return;
+      }
+
+      currentStudent = name;
+      document.getElementById('quizStudentDisplay').innerText = `Siswa: ${currentStudent}`;
+      document.getElementById('quizIdentityStep').classList.add('hidden');
+      document.getElementById('quizQuestionsStep').classList.remove('hidden');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function submitQuiz() {
+      let score = 0;
+      let correctCount = 0;
+
+      // Kunci Jawaban Pilihan Ganda (Q1 - Q5)
+      const mcqKeys = {
+        q1: 'B', // 4:10
+        q2: 'C', // 3:5
+        q3: 'B', // 9:12
+        q4: 'D', // 2:5 & 6:10
+        q5: 'C'  // 21
+      };
+
+      // Check MCQ Answers
+      for (let i = 1; i <= 5; i++) {
+        const qName = 'q' + i;
+        const selected = document.querySelector(`input[name="${qName}"]:checked`);
+        if (selected && selected.value === mcqKeys[qName]) {
+          score += 10;
+          correctCount++;
+        }
+      }
+
+      // Check Fill-in Answers using Regex Matching for flexible kid input
+      // Q6: 3:5 / 3 : 5
+      const q6Val = document.getElementById('q6').value.trim();
+      if (/^3\s*:\s*5$/i.test(q6Val)) {
+        score += 10;
+        correctCount++;
+      }
+
+      // Q7: 15
+      const q7Val = document.getElementById('q7').value.trim();
+      if (q7Val === '15') {
+        score += 10;
+        correctCount++;
+      }
+
+      // Q8: 20:32 / 20 : 32
+      const q8Val = document.getElementById('q8').value.trim();
+      if (/^20\s*:\s*32$/i.test(q8Val)) {
+        score += 10;
+        correctCount++;
+      }
+
+      // Q9: Ya / Senilai
+      const q9Val = document.getElementById('q9').value.trim().toLowerCase();
+      if (q9Val === 'ya' || q9Val === 'senilai') {
+        score += 10;
+        correctCount++;
+      }
+
+      // Q10: 12
+      const q10Val = document.getElementById('q10').value.trim();
+      if (q10Val === '12') {
+        score += 10;
+        correctCount++;
+      }
+
+      // Display Result
+      document.getElementById('resStudentName').innerText = currentStudent;
+      document.getElementById('resScore').innerText = score;
+      document.getElementById('resSummary').innerText = `Jawaban Benar: ${correctCount} dari 10 Soal`;
+
+      document.getElementById('quizQuestionsStep').classList.add('hidden');
+      document.getElementById('quizResultStep').classList.remove('hidden');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function toggleEvaluation() {
+      const evalBox = document.getElementById('evaluationContent');
+      const toggleText = document.getElementById('evalToggleText');
+      if (evalBox.classList.contains('hidden')) {
+        evalBox.classList.remove('hidden');
+        toggleText.innerText = 'Sembunyikan Panduan Evaluasi';
+      } else {
+        evalBox.classList.add('hidden');
+        toggleText.innerText = 'Lihat Panduan Evaluasi / Pembahasan';
+      }
+    }
+
+    function resetQuiz() {
+      document.getElementById('quizForm').reset();
+      document.getElementById('quizResultStep').classList.add('hidden');
+      document.getElementById('quizQuestionsStep').classList.add('hidden');
+      document.getElementById('quizIdentityStep').classList.remove('hidden');
+      document.getElementById('evaluationContent').classList.add('hidden');
+      document.getElementById('evalToggleText').innerText = 'Lihat Panduan Evaluasi / Pembahasan';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Initialize Widget on load
+    window.onload = function() {
+      calcP2();
+    };
+  </script>
+</body>
+</html>
